@@ -1,11 +1,28 @@
-function Sidebar({ setPage }) {
+function Sidebar({ setPage, currentRole }) {
+  // Roles definition - can be moved to a constants file later
+  const ROLES = {
+    ADMIN: 'ADMIN',
+    USER: 'USER',
+    VIEWER: 'VIEWER'
+  };
+
+  const menuItems = [
+    { label: 'Dashboard', page: 'dashboard', roles: [ROLES.ADMIN, ROLES.USER, ROLES.VIEWER] },
+    { label: 'Vendor Master', page: 'vendors', roles: [ROLES.ADMIN] },
+    { label: 'Expense Entry', page: 'expense', roles: [ROLES.ADMIN, ROLES.USER] },
+    { label: 'Payment Entry', page: 'payment', roles: [ROLES.ADMIN, ROLES.USER] }
+  ];
+
   return (
     <div style={styles.sidebar}>
       <ul style={styles.menu}>
-        <li onClick={() => setPage('dashboard')}>Dashboard</li>
-        <li onClick={() => setPage('vendors')}>Vendor Master</li>
-        <li onClick={() => setPage('expense')}>Expense Entry</li>
-        <li onClick={() => setPage('payment')}>Payment Entry</li>
+        {menuItems
+          .filter(item => item.roles.includes(currentRole))
+          .map(item => (
+            <li key={item.page} onClick={() => setPage(item.page)}>
+              {item.label}
+            </li>
+          ))}
       </ul>
     </div>
   )

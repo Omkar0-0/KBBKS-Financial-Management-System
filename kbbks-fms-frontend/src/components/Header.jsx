@@ -1,9 +1,9 @@
-function Header({ onLogout }) {
+function Header({ onLogout, currentRole }) {
   return (
     <div style={styles.header}>
       <h3>KBBKS – FMS</h3>
       <div style={styles.rightSection}>
-        <span>Role: Accounts</span>
+        <span>Role: {currentRole}</span>
         <button onClick={onLogout} style={styles.logoutButton}>Logout</button>
       </div>
     </div>
