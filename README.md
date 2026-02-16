@@ -136,15 +136,6 @@ npm run dev
 
 ---
 
-## 👤 Default Test Users
-
-After running migrations, you can test with:
-
-| Email | Password | Role |
-|-------|----------|------|
-| admin@test.com | password123 | Admin |
-| accountant@test.com | password123 | Accountant |
-| viewer@test.com | password123 | Viewer |
 
 ### Try This Workflow
 1. **Login** as Admin with `admin@test.com` / `password123`
@@ -268,11 +259,11 @@ GET    /api/reports/monthly-expense     - Monthly expense breakdown
 
 ## 🔑 User Roles Explained
 
-| Role | Dashboard | Vendor | Expense | Payment | Reports |
-|------|-----------|--------|---------|---------|---------|
-| **Admin** | ✅ View | ✅ CRUD | ✅ CRUD | ✅ CRUD | ✅ View |
-| **Accountant** | ✅ View | ✅ CRUD | ✅ CRUD | ✅ CRUD | ✅ View |
-| **Viewer** | ✅ View | ❌ | ❌ | ❌ | ✅ View |
+| Role | Dashboard | Vendor | Expense | Payment |
+|------|-----------|--------|---------|---------|
+| **Admin** | ✅ View | ✅ CRUD | ✅ CRUD | ✅ CRUD |
+| **Accountant** | ✅ View | ❌ | ✅ CRUD | ✅ CRUD |
+| **Viewer** | ✅ View | ❌ | ❌ | ❌ |
 
 ---
 
@@ -468,26 +459,3 @@ await addExpense({
 ```
 
 ---
-
-## 📄 License
-
-This project is provided as-is for KBBKS NGO. For internal use only.
-
----
-
-## ✨ Future Enhancements
-
-- [ ] PDF invoice generation
-- [ ] Email notifications
-- [ ] Multi-user collaboration
-- [ ] Budget tracking
-- [ ] Advanced reporting (charts, graphs)
-- [ ] Bulk import/export
-- [ ] Mobile app
-- [ ] API rate limiting
-- [ ] Audit logs
-- [ ] Data backup/restore
-
----
-
-**Happy Financial Managing! 💰**
