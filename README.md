@@ -66,7 +66,7 @@ mysql -u root -p -e "SELECT 1"
 
 ### 1️⃣ Clone Repository and Navigate to Project
 ```bash
-cd c:\Users\omi\Desktop\fms
+cd c:\Users\Desktop\fms
 ```
 
 ### 2️⃣ Database Setup
@@ -121,7 +121,6 @@ cd kbbks-fms-frontend
 npm install
 
 # Create .env file (if not exists)
-echo "VITE_API_BASE_URL=http://localhost:8080/api" > .env
 
 # Start development server
 npm run dev
@@ -177,37 +176,6 @@ KBBKS-FMS/
     ├── vite.config.js          # Vite configuration
     └── package.json            # Node dependencies
 ```
-
----
-
-## 🔧 Environment Configuration
-
-### Backend (.env)
-Located at: `kbbks-fms-backend/.env`
-```dotenv
-CI_ENVIRONMENT = development
-
-# Database Configuration (default)
-database.default.hostname = localhost
-database.default.database = fms_db
-database.default.username = root
-database.default.password =
-database.default.DBDriver = MySQLi
-database.default.port = 3306
-```
-
-**Change these if your MySQL setup is different** (e.g., password, port, hostname)
-
-### Frontend (.env)
-Located at: `kbbks-fms-frontend/.env`
-```dotenv
-VITE_API_BASE_URL=http://localhost:8080/api
-```
-
-**Change this if:**
-- Backend runs on different port
-- Backend runs on different hostname (e.g., 127.0.0.1)
-- Deploying to production
 
 ---
 
