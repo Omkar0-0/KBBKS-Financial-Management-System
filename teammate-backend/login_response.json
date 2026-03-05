@@ -1,0 +1,1008 @@
+{
+    "title": "CodeIgniter\\HTTP\\Exceptions\\HTTPException",
+    "type": "CodeIgniter\\HTTP\\Exceptions\\HTTPException",
+    "code": 500,
+    "message": "Failed to parse JSON string. Error: Syntax error",
+    "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\HTTP\\IncomingRequest.php",
+    "line": 534,
+    "trace": [
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\HTTP\\IncomingRequest.php",
+            "line": 534,
+            "function": "forInvalidJSON",
+            "class": "CodeIgniter\\HTTP\\Exceptions\\HTTPException",
+            "type": "::",
+            "args": [
+                "Syntax error"
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Controllers\\AuthController.php",
+            "line": 53,
+            "function": "getJSON",
+            "class": "CodeIgniter\\HTTP\\IncomingRequest",
+            "type": "->",
+            "args": [
+                true
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\CodeIgniter.php",
+            "line": 933,
+            "function": "login",
+            "class": "App\\Controllers\\AuthController",
+            "type": "->",
+            "args": []
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\CodeIgniter.php",
+            "line": 507,
+            "function": "runController",
+            "class": "CodeIgniter\\CodeIgniter",
+            "type": "->",
+            "args": [
+                {
+                    "helpers": [],
+                    "request": {
+                        "protocolVersion": "1.1",
+                        "validProtocolVersions": [
+                            "1.0",
+                            "1.1",
+                            "2.0",
+                            "3.0"
+                        ],
+                        "body": "{\\\" \"email\\:\\admin@gmail.com\\,\\password\\:\\password123\\}  \r\n",
+                        "headers": {
+                            "Content-Type": {
+                                "name": "Content-Type",
+                                "value": "application/json"
+                            },
+                            "Host": {
+                                "name": "Host",
+                                "value": "localhost:8080"
+                            },
+                            "User-Agent": {
+                                "name": "User-Agent",
+                                "value": "curl/8.16.0"
+                            },
+                            "Accept": {
+                                "name": "Accept",
+                                "value": "*/*"
+                            },
+                            "Content-Length": {
+                                "name": "Content-Length",
+                                "value": "59"
+                            }
+                        },
+                        "headerMap": {
+                            "content-type": "Content-Type",
+                            "host": "Host",
+                            "user-agent": "User-Agent",
+                            "accept": "Accept",
+                            "content-length": "Content-Length"
+                        },
+                        "method": "POST",
+                        "uri": {
+                            "uriString": null,
+                            "baseURL": {
+                                "uriString": null,
+                                "baseURL": null,
+                                "segments": [],
+                                "scheme": "http",
+                                "user": null,
+                                "password": null,
+                                "host": "localhost",
+                                "port": 8081,
+                                "path": "/",
+                                "fragment": "",
+                                "query": [],
+                                "defaultPorts": {
+                                    "http": 80,
+                                    "https": 443,
+                                    "ftp": 21,
+                                    "sftp": 22
+                                },
+                                "showPassword": false,
+                                "silent": false,
+                                "rawQueryString": false
+                            },
+                            "segments": [
+                                "auth",
+                                "login"
+                            ],
+                            "scheme": "http",
+                            "user": null,
+                            "password": null,
+                            "host": "localhost",
+                            "port": 8081,
+                            "path": "/index.php/auth/login",
+                            "fragment": "",
+                            "query": [],
+                            "defaultPorts": {
+                                "http": 80,
+                                "https": 443,
+                                "ftp": 21,
+                                "sftp": 22
+                            },
+                            "showPassword": false,
+                            "silent": false,
+                            "rawQueryString": false,
+                            "basePathWithoutIndexPage": "/",
+                            "indexPage": "index.php",
+                            "baseSegments": [
+                                "index.php"
+                            ],
+                            "routePath": "auth/login"
+                        },
+                        "config": {
+                            "baseURL": "http://localhost:8081/",
+                            "allowedHostnames": [],
+                            "indexPage": "index.php",
+                            "uriProtocol": "REQUEST_URI",
+                            "permittedURIChars": "a-z 0-9~%.:_\\-",
+                            "defaultLocale": "en",
+                            "negotiateLocale": false,
+                            "supportedLocales": [
+                                "en"
+                            ],
+                            "appTimezone": "UTC",
+                            "charset": "UTF-8",
+                            "forceGlobalSecureRequests": false,
+                            "proxyIPs": [],
+                            "CSPEnabled": false,
+                            "debug": true
+                        },
+                        "ipAddress": "",
+                        "globals": {
+                            "server": {
+                                "DOCUMENT_ROOT": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\public",
+                                "REMOTE_ADDR": "::1",
+                                "REMOTE_PORT": "62565",
+                                "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+                                "SERVER_PROTOCOL": "HTTP/1.1",
+                                "SERVER_NAME": "localhost",
+                                "SERVER_PORT": "8080",
+                                "REQUEST_URI": "/auth/login",
+                                "REQUEST_METHOD": "POST",
+                                "SCRIPT_NAME": "/index.php",
+                                "SCRIPT_FILENAME": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\public\\index.php",
+                                "PATH_INFO": "/auth/login",
+                                "PHP_SELF": "/index.php/auth/login",
+                                "HTTP_HOST": "localhost:8080",
+                                "HTTP_USER_AGENT": "curl/8.16.0",
+                                "HTTP_ACCEPT": "*/*",
+                                "CONTENT_TYPE": "application/json",
+                                "HTTP_CONTENT_TYPE": "application/json",
+                                "CONTENT_LENGTH": "59",
+                                "HTTP_CONTENT_LENGTH": "59",
+                                "REQUEST_TIME_FLOAT": 1772025299.184727,
+                                "REQUEST_TIME": 1772025299,
+                                "CI_ENVIRONMENT": "development",
+                                "app.baseURL": "http://localhost:8081/",
+                                "database.default.hostname": "localhost",
+                                "database.default.database": "fms_db",
+                                "database.default.username": "root",
+                                "database.default.password": "",
+                                "database.default.DBDriver": "MySQLi",
+                                "database.default.port": "3306",
+                                "QUERY_STRING": ""
+                            },
+                            "post": [],
+                            "get": []
+                        },
+                        "path": "auth/login",
+                        "files": null,
+                        "negotiator": null,
+                        "defaultLocale": "en",
+                        "locale": "en",
+                        "validLocales": [
+                            "en"
+                        ],
+                        "oldInput": [],
+                        "userAgent": {
+                            "agent": "curl/8.16.0",
+                            "isBrowser": false,
+                            "isRobot": false,
+                            "isMobile": false,
+                            "config": {
+                                "platforms": {
+                                    "windows nt 10.0": "Windows 10",
+                                    "windows nt 6.3": "Windows 8.1",
+                                    "windows nt 6.2": "Windows 8",
+                                    "windows nt 6.1": "Windows 7",
+                                    "windows nt 6.0": "Windows Vista",
+                                    "windows nt 5.2": "Windows 2003",
+                                    "windows nt 5.1": "Windows XP",
+                                    "windows nt 5.0": "Windows 2000",
+                                    "windows nt 4.0": "Windows NT 4.0",
+                                    "winnt4.0": "Windows NT 4.0",
+                                    "winnt 4.0": "Windows NT",
+                                    "winnt": "Windows NT",
+                                    "windows 98": "Windows 98",
+                                    "win98": "Windows 98",
+                                    "windows 95": "Windows 95",
+                                    "win95": "Windows 95",
+                                    "windows phone": "Windows Phone",
+                                    "windows": "Unknown Windows OS",
+                                    "android": "Android",
+                                    "blackberry": "BlackBerry",
+                                    "iphone": "iOS",
+                                    "ipad": "iOS",
+                                    "ipod": "iOS",
+                                    "os x": "Mac OS X",
+                                    "ppc mac": "Power PC Mac",
+                                    "freebsd": "FreeBSD",
+                                    "ppc": "Macintosh",
+                                    "linux": "Linux",
+                                    "debian": "Debian",
+                                    "sunos": "Sun Solaris",
+                                    "beos": "BeOS",
+                                    "apachebench": "ApacheBench",
+                                    "aix": "AIX",
+                                    "irix": "Irix",
+                                    "osf": "DEC OSF",
+                                    "hp-ux": "HP-UX",
+                                    "netbsd": "NetBSD",
+                                    "bsdi": "BSDi",
+                                    "openbsd": "OpenBSD",
+                                    "gnu": "GNU/Linux",
+                                    "unix": "Unknown Unix OS",
+                                    "symbian": "Symbian OS"
+                                },
+                                "browsers": {
+                                    "OPR": "Opera",
+                                    "Flock": "Flock",
+                                    "Edge": "Spartan",
+                                    "Edg": "Edge",
+                                    "Chrome": "Chrome",
+                                    "Opera.*?Version": "Opera",
+                                    "Opera": "Opera",
+                                    "MSIE": "Internet Explorer",
+                                    "Internet Explorer": "Internet Explorer",
+                                    "Trident.* rv": "Internet Explorer",
+                                    "Shiira": "Shiira",
+                                    "Firefox": "Firefox",
+                                    "Chimera": "Chimera",
+                                    "Phoenix": "Phoenix",
+                                    "Firebird": "Firebird",
+                                    "Camino": "Camino",
+                                    "Netscape": "Netscape",
+                                    "OmniWeb": "OmniWeb",
+                                    "Safari": "Safari",
+                                    "Mozilla": "Mozilla",
+                                    "Konqueror": "Konqueror",
+                                    "icab": "iCab",
+                                    "Lynx": "Lynx",
+                                    "Links": "Links",
+                                    "hotjava": "HotJava",
+                                    "amaya": "Amaya",
+                                    "IBrowse": "IBrowse",
+                                    "Maxthon": "Maxthon",
+                                    "Ubuntu": "Ubuntu Web Browser",
+                                    "Vivaldi": "Vivaldi"
+                                },
+                                "mobiles": {
+                                    "mobileexplorer": "Mobile Explorer",
+                                    "palmsource": "Palm",
+                                    "palmscape": "Palmscape",
+                                    "motorola": "Motorola",
+                                    "nokia": "Nokia",
+                                    "palm": "Palm",
+                                    "iphone": "Apple iPhone",
+                                    "ipad": "iPad",
+                                    "ipod": "Apple iPod Touch",
+                                    "sony": "Sony Ericsson",
+                                    "ericsson": "Sony Ericsson",
+                                    "blackberry": "BlackBerry",
+                                    "cocoon": "O2 Cocoon",
+                                    "blazer": "Treo",
+                                    "lg": "LG",
+                                    "amoi": "Amoi",
+                                    "xda": "XDA",
+                                    "mda": "MDA",
+                                    "vario": "Vario",
+                                    "htc": "HTC",
+                                    "samsung": "Samsung",
+                                    "sharp": "Sharp",
+                                    "sie-": "Siemens",
+                                    "alcatel": "Alcatel",
+                                    "benq": "BenQ",
+                                    "ipaq": "HP iPaq",
+                                    "mot-": "Motorola",
+                                    "playstation portable": "PlayStation Portable",
+                                    "playstation 3": "PlayStation 3",
+                                    "playstation vita": "PlayStation Vita",
+                                    "hiptop": "Danger Hiptop",
+                                    "nec-": "NEC",
+                                    "panasonic": "Panasonic",
+                                    "philips": "Philips",
+                                    "sagem": "Sagem",
+                                    "sanyo": "Sanyo",
+                                    "spv": "SPV",
+                                    "zte": "ZTE",
+                                    "sendo": "Sendo",
+                                    "nintendo dsi": "Nintendo DSi",
+                                    "nintendo ds": "Nintendo DS",
+                                    "nintendo 3ds": "Nintendo 3DS",
+                                    "wii": "Nintendo Wii",
+                                    "open web": "Open Web",
+                                    "openweb": "OpenWeb",
+                                    "android": "Android",
+                                    "symbian": "Symbian",
+                                    "SymbianOS": "SymbianOS",
+                                    "elaine": "Palm",
+                                    "series60": "Symbian S60",
+                                    "windows ce": "Windows CE",
+                                    "obigo": "Obigo",
+                                    "netfront": "Netfront Browser",
+                                    "openwave": "Openwave Browser",
+                                    "mobilexplorer": "Mobile Explorer",
+                                    "operamini": "Opera Mini",
+                                    "opera mini": "Opera Mini",
+                                    "opera mobi": "Opera Mobile",
+                                    "fennec": "Firefox Mobile",
+                                    "digital paths": "Digital Paths",
+                                    "avantgo": "AvantGo",
+                                    "xiino": "Xiino",
+                                    "novarra": "Novarra Transcoder",
+                                    "vodafone": "Vodafone",
+                                    "docomo": "NTT DoCoMo",
+                                    "o2": "O2",
+                                    "mobile": "Generic Mobile",
+                                    "wireless": "Generic Mobile",
+                                    "j2me": "Generic Mobile",
+                                    "midp": "Generic Mobile",
+                                    "cldc": "Generic Mobile",
+                                    "up.link": "Generic Mobile",
+                                    "up.browser": "Generic Mobile",
+                                    "smartphone": "Generic Mobile",
+                                    "cellphone": "Generic Mobile"
+                                },
+                                "robots": {
+                                    "googlebot": "Googlebot",
+                                    "msnbot": "MSNBot",
+                                    "baiduspider": "Baiduspider",
+                                    "bingbot": "Bing",
+                                    "slurp": "Inktomi Slurp",
+                                    "yahoo": "Yahoo",
+                                    "ask jeeves": "Ask Jeeves",
+                                    "fastcrawler": "FastCrawler",
+                                    "infoseek": "InfoSeek Robot 1.0",
+                                    "lycos": "Lycos",
+                                    "yandex": "YandexBot",
+                                    "mediapartners-google": "MediaPartners Google",
+                                    "CRAZYWEBCRAWLER": "Crazy Webcrawler",
+                                    "adsbot-google": "AdsBot Google",
+                                    "feedfetcher-google": "Feedfetcher Google",
+                                    "curious george": "Curious George",
+                                    "ia_archiver": "Alexa Crawler",
+                                    "MJ12bot": "Majestic-12",
+                                    "Uptimebot": "Uptimebot"
+                                }
+                            },
+                            "platform": "Unknown Platform",
+                            "browser": "",
+                            "version": "",
+                            "mobile": "",
+                            "robot": "",
+                            "referrer": null
+                        }
+                    },
+                    "response": {
+                        "protocolVersion": "1.1",
+                        "validProtocolVersions": [
+                            "1.0",
+                            "1.1",
+                            "2.0",
+                            "3.0"
+                        ],
+                        "body": null,
+                        "headers": {
+                            "Cache-Control": {
+                                "name": "Cache-Control",
+                                "value": [
+                                    "no-store",
+                                    "max-age=0",
+                                    "no-cache"
+                                ]
+                            },
+                            "Content-Type": {
+                                "name": "Content-Type",
+                                "value": "text/html; charset=UTF-8"
+                            }
+                        },
+                        "headerMap": {
+                            "cache-control": "Cache-Control",
+                            "content-type": "Content-Type"
+                        },
+                        "reason": "Internal Server Error",
+                        "statusCode": 500,
+                        "pretend": false,
+                        "CSP": {
+                            "directives": {
+                                "base-uri": "baseURI",
+                                "child-src": "childSrc",
+                                "connect-src": "connectSrc",
+                                "default-src": "defaultSrc",
+                                "font-src": "fontSrc",
+                                "form-action": "formAction",
+                                "frame-ancestors": "frameAncestors",
+                                "frame-src": "frameSrc",
+                                "img-src": "imageSrc",
+                                "media-src": "mediaSrc",
+                                "object-src": "objectSrc",
+                                "plugin-types": "pluginTypes",
+                                "script-src": "scriptSrc",
+                                "style-src": "styleSrc",
+                                "manifest-src": "manifestSrc",
+                                "sandbox": "sandbox",
+                                "report-uri": "reportURI"
+                            },
+                            "baseURI": null,
+                            "childSrc": "self",
+                            "connectSrc": "self",
+                            "defaultSrc": null,
+                            "fontSrc": null,
+                            "formAction": "self",
+                            "frameAncestors": null,
+                            "frameSrc": null,
+                            "imageSrc": "self",
+                            "mediaSrc": null,
+                            "objectSrc": "self",
+                            "pluginTypes": null,
+                            "scriptSrc": [
+                                "self"
+                            ],
+                            "styleSrc": [
+                                "self"
+                            ],
+                            "manifestSrc": null,
+                            "sandbox": null,
+                            "reportURI": null,
+                            "upgradeInsecureRequests": false,
+                            "reportOnly": false,
+                            "validSources": [
+                                "self",
+                                "none",
+                                "unsafe-inline",
+                                "unsafe-eval"
+                            ],
+                            "nonces": [],
+                            "styleNonce": null,
+                            "scriptNonce": null,
+                            "styleNonceTag": "",
+                            "scriptNonceTag": "",
+                            "autoNonce": true,
+                            "tempHeaders": [],
+                            "reportOnlyHeaders": [],
+                            "CSPEnabled": false
+                        },
+                        "cookieStore": {
+                            "cookies": []
+                        },
+                        "bodyFormat": "html"
+                    },
+                    "logger": {
+                        "logLevels": {
+                            "emergency": 1,
+                            "alert": 2,
+                            "critical": 3,
+                            "error": 4,
+                            "warning": 5,
+                            "notice": 6,
+                            "info": 7,
+                            "debug": 8
+                        },
+                        "loggableLevels": [
+                            "emergency",
+                            "alert",
+                            "critical",
+                            "error",
+                            "warning",
+                            "notice",
+                            "info",
+                            "debug"
+                        ],
+                        "filePermissions": 420,
+                        "dateFormat": "Y-m-d H:i:s",
+                        "fileExt": null,
+                        "handlers": {
+                            "CodeIgniter\\Log\\Handlers\\FileHandler": {
+                                "handles": [
+                                    "critical",
+                                    "alert",
+                                    "emergency",
+                                    "debug",
+                                    "error",
+                                    "info",
+                                    "notice",
+                                    "warning"
+                                ],
+                                "dateFormat": "Y-m-d H:i:s",
+                                "path": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\writable\\logs/",
+                                "fileExtension": "log",
+                                "filePermissions": 420
+                            }
+                        },
+                        "handlerConfig": {
+                            "CodeIgniter\\Log\\Handlers\\FileHandler": {
+                                "handles": [
+                                    "critical",
+                                    "alert",
+                                    "emergency",
+                                    "debug",
+                                    "error",
+                                    "info",
+                                    "notice",
+                                    "warning"
+                                ],
+                                "fileExtension": "",
+                                "filePermissions": 420,
+                                "path": ""
+                            }
+                        },
+                        "logCache": [
+                            {
+                                "level": "critical",
+                                "msg": "CodeIgniter\\HTTP\\Exceptions\\HTTPException: Failed to parse JSON string. Error: Syntax error\n[Method: POST, Route: auth/login]\nin SYSTEMPATH\\HTTP\\IncomingRequest.php on line 534.\n 1 SYSTEMPATH\\HTTP\\IncomingRequest.php(534): CodeIgniter\\HTTP\\Exceptions\\HTTPException::forInvalidJSON('Syntax error')\n 2 APPPATH\\Controllers\\AuthController.php(53): CodeIgniter\\HTTP\\IncomingRequest->getJSON(true)\n 3 SYSTEMPATH\\CodeIgniter.php(933): App\\Controllers\\AuthController->login()\n 4 SYSTEMPATH\\CodeIgniter.php(507): CodeIgniter\\CodeIgniter->runController(Object(App\\Controllers\\AuthController))\n 5 SYSTEMPATH\\CodeIgniter.php(354): CodeIgniter\\CodeIgniter->handleRequest(null, Object(Config\\Cache), false)\n 6 SYSTEMPATH\\Boot.php(363): CodeIgniter\\CodeIgniter->run()\n 7 SYSTEMPATH\\Boot.php(68): CodeIgniter\\Boot::runCodeIgniter(Object(CodeIgniter\\CodeIgniter))\n 8 FCPATH\\index.php(59): CodeIgniter\\Boot::bootWeb(Object(Config\\Paths))\n 9 SYSTEMPATH\\rewrite.php(44): require_once('C:\\\\Users\\\\omi\\\\Desktop\\\\fms\\\\teammate-backend\\\\public\\\\index.php')"
+                            }
+                        ],
+                        "cacheLogs": true
+                    },
+                    "forceHTTPS": 0,
+                    "validator": null,
+                    "currentUser": null
+                }
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\CodeIgniter.php",
+            "line": 354,
+            "function": "handleRequest",
+            "class": "CodeIgniter\\CodeIgniter",
+            "type": "->",
+            "args": [
+                null,
+                {
+                    "handler": "file",
+                    "backupHandler": "dummy",
+                    "prefix": "",
+                    "ttl": 60,
+                    "reservedCharacters": "{}()/\\@:",
+                    "file": {
+                        "storePath": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\writable\\cache/",
+                        "mode": 416
+                    },
+                    "memcached": {
+                        "host": "127.0.0.1",
+                        "port": 11211,
+                        "weight": 1,
+                        "raw": false
+                    },
+                    "redis": {
+                        "host": "127.0.0.1",
+                        "password": null,
+                        "port": 6379,
+                        "timeout": 0,
+                        "database": 0
+                    },
+                    "validHandlers": {
+                        "dummy": "CodeIgniter\\Cache\\Handlers\\DummyHandler",
+                        "file": "CodeIgniter\\Cache\\Handlers\\FileHandler",
+                        "memcached": "CodeIgniter\\Cache\\Handlers\\MemcachedHandler",
+                        "predis": "CodeIgniter\\Cache\\Handlers\\PredisHandler",
+                        "redis": "CodeIgniter\\Cache\\Handlers\\RedisHandler",
+                        "wincache": "CodeIgniter\\Cache\\Handlers\\WincacheHandler"
+                    },
+                    "cacheQueryString": false
+                },
+                false
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\Boot.php",
+            "line": 363,
+            "function": "run",
+            "class": "CodeIgniter\\CodeIgniter",
+            "type": "->",
+            "args": []
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\Boot.php",
+            "line": 68,
+            "function": "runCodeIgniter",
+            "class": "CodeIgniter\\Boot",
+            "type": "::",
+            "args": [
+                {
+                    "startTime": 1772025299.212016,
+                    "totalTime": null,
+                    "config": "[Config\\App Object *RECURSION*]",
+                    "benchmark": {
+                        "timers": {
+                            "total_execution": {
+                                "start": 1772025299.212016,
+                                "end": null
+                            },
+                            "bootstrap": {
+                                "start": 1772025299.21677,
+                                "end": 1772025299.236414
+                            },
+                            "required_before_filters": {
+                                "start": 1772025299.236416,
+                                "end": 1772025299.239638
+                            },
+                            "routing": {
+                                "start": 1772025299.239643,
+                                "end": 1772025299.240168
+                            },
+                            "before_filters": {
+                                "start": 1772025299.240336,
+                                "end": 1772025299.240364
+                            },
+                            "controller": {
+                                "start": 1772025299.240366,
+                                "end": null
+                            },
+                            "controller_constructor": {
+                                "start": 1772025299.240367,
+                                "end": 1772025299.242976
+                            }
+                        }
+                    },
+                    "request": "[CodeIgniter\\HTTP\\IncomingRequest Object *RECURSION*]",
+                    "response": "[CodeIgniter\\HTTP\\Response Object *RECURSION*]",
+                    "router": {
+                        "collection": {
+                            "defaultNamespace": "App\\Controllers\\",
+                            "defaultController": "Home",
+                            "defaultMethod": "index",
+                            "defaultPlaceholder": "any",
+                            "translateURIDashes": false,
+                            "autoRoute": false,
+                            "override404": null,
+                            "routeFiles": [
+                                "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config\\Routes.php"
+                            ],
+                            "placeholders": {
+                                "any": ".*",
+                                "segment": "[^/]+",
+                                "alphanum": "[a-zA-Z0-9]+",
+                                "num": "[0-9]+",
+                                "alpha": "[a-zA-Z]+",
+                                "hash": "[^/]+"
+                            },
+                            "routes": {
+                                "*": [],
+                                "OPTIONS": [],
+                                "GET": {
+                                    "__hot-reload": {
+                                        "name": "__hot-reload",
+                                        "handler": "[Closure]",
+                                        "from": "__hot-reload"
+                                    },
+                                    "/": {
+                                        "name": "/",
+                                        "handler": "\\App\\Controllers\\Home::index",
+                                        "from": "/"
+                                    },
+                                    "vendors": {
+                                        "name": "vendors",
+                                        "handler": "\\App\\Controllers\\VendorController::index",
+                                        "from": "vendors"
+                                    },
+                                    "vendors/delete/([0-9]+)": {
+                                        "name": "vendors/delete/([0-9]+)",
+                                        "handler": "\\App\\Controllers\\VendorController::delete/$1",
+                                        "from": "vendors/delete/(:num)"
+                                    },
+                                    "bills": {
+                                        "name": "bills",
+                                        "handler": "\\App\\Controllers\\BillController::index",
+                                        "from": "bills"
+                                    },
+                                    "expenses": {
+                                        "name": "expenses",
+                                        "handler": "\\App\\Controllers\\ExpenseController::index",
+                                        "from": "expenses"
+                                    },
+                                    "payments": {
+                                        "name": "payments",
+                                        "handler": "\\App\\Controllers\\PaymentController::index",
+                                        "from": "payments"
+                                    },
+                                    "reports/vendor-outstanding": {
+                                        "name": "reports/vendor-outstanding",
+                                        "handler": "\\App\\Controllers\\ReportController::vendorOutstanding",
+                                        "from": "reports/vendor-outstanding"
+                                    },
+                                    "reports/monthly-expense": {
+                                        "name": "reports/monthly-expense",
+                                        "handler": "\\App\\Controllers\\ReportController::monthlyExpense",
+                                        "from": "reports/monthly-expense"
+                                    },
+                                    "reports/income-expense": {
+                                        "name": "reports/income-expense",
+                                        "handler": "\\App\\Controllers\\ReportController::incomeExpense",
+                                        "from": "reports/income-expense"
+                                    },
+                                    "reports/vendor-summary/([0-9]+)": {
+                                        "name": "reports/vendor-summary/([0-9]+)",
+                                        "handler": "\\App\\Controllers\\ReportController::vendorSummary/$1",
+                                        "from": "reports/vendor-summary/(:num)"
+                                    },
+                                    "reports/dashboard-summary": {
+                                        "name": "reports/dashboard-summary",
+                                        "handler": "\\App\\Controllers\\ReportController::dashboardSummary",
+                                        "from": "reports/dashboard-summary"
+                                    },
+                                    "reports/dashboard-trend": {
+                                        "name": "reports/dashboard-trend",
+                                        "handler": "\\App\\Controllers\\ReportController::dashboardTrend",
+                                        "from": "reports/dashboard-trend"
+                                    },
+                                    "reports/expense-category-distribution": {
+                                        "name": "reports/expense-category-distribution",
+                                        "handler": "\\App\\Controllers\\ReportController::expenseCategoryDistribution",
+                                        "from": "reports/expense-category-distribution"
+                                    }
+                                },
+                                "HEAD": [],
+                                "POST": {
+                                    "auth/login": {
+                                        "name": "auth/login",
+                                        "handler": "\\App\\Controllers\\AuthController::login",
+                                        "from": "auth/login"
+                                    },
+                                    "auth/register": {
+                                        "name": "auth/register",
+                                        "handler": "\\App\\Controllers\\AuthController::register",
+                                        "from": "auth/register"
+                                    },
+                                    "vendors/create": {
+                                        "name": "vendors/create",
+                                        "handler": "\\App\\Controllers\\VendorController::create",
+                                        "from": "vendors/create"
+                                    },
+                                    "vendors/update/([0-9]+)": {
+                                        "name": "vendors/update/([0-9]+)",
+                                        "handler": "\\App\\Controllers\\VendorController::update/$1",
+                                        "from": "vendors/update/(:num)"
+                                    },
+                                    "bills/create": {
+                                        "name": "bills/create",
+                                        "handler": "\\App\\Controllers\\BillController::create",
+                                        "from": "bills/create"
+                                    },
+                                    "expenses/create": {
+                                        "name": "expenses/create",
+                                        "handler": "\\App\\Controllers\\ExpenseController::create",
+                                        "from": "expenses/create"
+                                    },
+                                    "payments/create": {
+                                        "name": "payments/create",
+                                        "handler": "\\App\\Controllers\\PaymentController::create",
+                                        "from": "payments/create"
+                                    }
+                                },
+                                "PATCH": [],
+                                "PUT": [],
+                                "DELETE": [],
+                                "TRACE": [],
+                                "CONNECT": [],
+                                "CLI": []
+                            },
+                            "routesNames": {
+                                "*": [],
+                                "OPTIONS": [],
+                                "GET": {
+                                    "__hot-reload": "__hot-reload",
+                                    "/": "/",
+                                    "vendors": "vendors",
+                                    "vendors/delete/([0-9]+)": "vendors/delete/([0-9]+)",
+                                    "bills": "bills",
+                                    "expenses": "expenses",
+                                    "payments": "payments",
+                                    "reports/vendor-outstanding": "reports/vendor-outstanding",
+                                    "reports/monthly-expense": "reports/monthly-expense",
+                                    "reports/income-expense": "reports/income-expense",
+                                    "reports/vendor-summary/([0-9]+)": "reports/vendor-summary/([0-9]+)",
+                                    "reports/dashboard-summary": "reports/dashboard-summary",
+                                    "reports/dashboard-trend": "reports/dashboard-trend",
+                                    "reports/expense-category-distribution": "reports/expense-category-distribution"
+                                },
+                                "HEAD": [],
+                                "POST": {
+                                    "auth/login": "auth/login",
+                                    "auth/register": "auth/register",
+                                    "vendors/create": "vendors/create",
+                                    "vendors/update/([0-9]+)": "vendors/update/([0-9]+)",
+                                    "bills/create": "bills/create",
+                                    "expenses/create": "expenses/create",
+                                    "payments/create": "payments/create"
+                                },
+                                "PATCH": [],
+                                "PUT": [],
+                                "DELETE": [],
+                                "TRACE": [],
+                                "CONNECT": [],
+                                "CLI": []
+                            },
+                            "routesOptions": {
+                                "GET": {
+                                    "__hot-reload": [],
+                                    "/": [],
+                                    "vendors": [],
+                                    "vendors/delete/([0-9]+)": [],
+                                    "bills": [],
+                                    "expenses": [],
+                                    "payments": [],
+                                    "reports/vendor-outstanding": [],
+                                    "reports/monthly-expense": [],
+                                    "reports/income-expense": [],
+                                    "reports/vendor-summary/([0-9]+)": [],
+                                    "reports/dashboard-summary": [],
+                                    "reports/dashboard-trend": [],
+                                    "reports/expense-category-distribution": []
+                                },
+                                "POST": {
+                                    "auth/login": [],
+                                    "auth/register": [],
+                                    "vendors/create": [],
+                                    "vendors/update/([0-9]+)": [],
+                                    "bills/create": [],
+                                    "expenses/create": [],
+                                    "payments/create": []
+                                }
+                            },
+                            "HTTPVerb": "POST",
+                            "defaultHTTPMethods": [
+                                "GET",
+                                "HEAD",
+                                "POST",
+                                "PATCH",
+                                "PUT",
+                                "DELETE",
+                                "OPTIONS",
+                                "TRACE",
+                                "CONNECT",
+                                "CLI"
+                            ],
+                            "group": null,
+                            "currentSubdomain": null,
+                            "currentOptions": null,
+                            "didDiscover": true,
+                            "fileLocator": {
+                                "autoloader": {
+                                    "prefixes": {
+                                        "CodeIgniter": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\"
+                                        ],
+                                        "Config": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config\\"
+                                        ],
+                                        "App": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\"
+                                        ],
+                                        "Tests\\Support": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../../tests/_support\\"
+                                        ],
+                                        "Psr\\Log": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../psr/log/src\\"
+                                        ],
+                                        "Psr\\Container": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../psr/container/src\\"
+                                        ],
+                                        "PhpParser": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../nikic/php-parser/lib/PhpParser\\"
+                                        ],
+                                        "Laminas\\Escaper": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../laminas/laminas-escaper/src\\"
+                                        ],
+                                        "Faker": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../fakerphp/faker/src/Faker\\"
+                                        ],
+                                        "DeepCopy": [
+                                            "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\composer/../myclabs/deep-copy/src/DeepCopy\\"
+                                        ]
+                                    },
+                                    "classmap": {
+                                        "Psr\\Log\\AbstractLogger": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/AbstractLogger.php",
+                                        "Psr\\Log\\InvalidArgumentException": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/InvalidArgumentException.php",
+                                        "Psr\\Log\\LoggerAwareInterface": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/LoggerAwareInterface.php",
+                                        "Psr\\Log\\LoggerAwareTrait": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/LoggerAwareTrait.php",
+                                        "Psr\\Log\\LoggerInterface": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/LoggerInterface.php",
+                                        "Psr\\Log\\LoggerTrait": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/LoggerTrait.php",
+                                        "Psr\\Log\\LogLevel": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/LogLevel.php",
+                                        "Psr\\Log\\NullLogger": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/PSR/Log/NullLogger.php",
+                                        "Laminas\\Escaper\\Exception\\ExceptionInterface": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/Escaper/Exception/ExceptionInterface.php",
+                                        "Laminas\\Escaper\\Exception\\InvalidArgumentException": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/Escaper/Exception/InvalidArgumentException.php",
+                                        "Laminas\\Escaper\\Exception\\RuntimeException": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/Escaper/Exception/RuntimeException.php",
+                                        "Laminas\\Escaper\\EscaperInterface": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/Escaper/EscaperInterface.php",
+                                        "Laminas\\Escaper\\Escaper": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\ThirdParty/Escaper/Escaper.php"
+                                    },
+                                    "files": [],
+                                    "helpers": [
+                                        "url"
+                                    ]
+                                },
+                                "invalidClassnames": []
+                            },
+                            "moduleConfig": {
+                                "enabled": true,
+                                "discoverInComposer": true,
+                                "aliases": [
+                                    "events",
+                                    "filters",
+                                    "registrars",
+                                    "routes",
+                                    "services"
+                                ],
+                                "composerPackages": []
+                            },
+                            "prioritize": false,
+                            "prioritizeDetected": false,
+                            "httpHost": "localhost:8080",
+                            "useSupportedLocalesOnly": false
+                        },
+                        "directory": null,
+                        "controller": "\\App\\Controllers\\AuthController",
+                        "method": "login",
+                        "params": [],
+                        "indexPage": "index.php",
+                        "translateURIDashes": false,
+                        "matchedRoute": [
+                            "auth/login",
+                            "\\App\\Controllers\\AuthController::login"
+                        ],
+                        "matchedRouteOptions": [],
+                        "detectedLocale": null,
+                        "filtersInfo": [],
+                        "autoRouter": null,
+                        "permittedURIChars": "a-z 0-9~%.:_\\-"
+                    },
+                    "controller": "\\App\\Controllers\\AuthController",
+                    "method": "login",
+                    "output": null,
+                    "context": "web",
+                    "enableFilters": true,
+                    "returnResponse": false,
+                    "bufferLevel": 1,
+                    "pageCache": {
+                        "cacheQueryString": false,
+                        "ttl": 0,
+                        "cache": {
+                            "prefix": "",
+                            "path": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\writable\\cache/",
+                            "mode": 416
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\public\\index.php",
+            "line": 59,
+            "function": "bootWeb",
+            "class": "CodeIgniter\\Boot",
+            "type": "::",
+            "args": [
+                {
+                    "systemDirectory": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config/../../vendor/codeigniter4/framework/system",
+                    "appDirectory": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config/..",
+                    "writableDirectory": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config/../../writable",
+                    "testsDirectory": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config/../../tests",
+                    "viewDirectory": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\app\\Config/../Views"
+                }
+            ]
+        },
+        {
+            "file": "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\vendor\\codeigniter4\\framework\\system\\rewrite.php",
+            "line": 44,
+            "args": [
+                "C:\\Users\\omi\\Desktop\\fms\\teammate-backend\\public\\index.php"
+            ],
+            "function": "require_once"
+        }
+    ]
+}

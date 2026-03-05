@@ -1,0 +1,8 @@
+{
+    "status": true,
+    "message": "Login successful",
+    "token": "68937824f58e77f1f3bb372fc5856dd83f1312e897c20bc7548783c2ad333ac5",
+    "role": "Admin",
+    "user_id": "4",
+    "name": "Dev Admin"
+}
