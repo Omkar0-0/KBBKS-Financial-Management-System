@@ -127,7 +127,7 @@ OR import **fms_db.sql** using phpMyAdmin.
 
 # Backend Setup
 
-cd teammate-backend composer install php spark serve --port=8080
+cd backend composer install php spark serve --port=8080
 
 Backend will run at:
 
@@ -139,7 +139,7 @@ http://localhost:8080
 
 Open a new terminal.
 
-cd kbbks-fms-frontend npm install npm run dev
+cd frontend npm install npm run dev
 
 Frontend will run at:
 
