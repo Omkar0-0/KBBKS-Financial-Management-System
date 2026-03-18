@@ -45,10 +45,18 @@ vendor management.
 
 # 📂 Project Structure
 
-KBBKS-Financial-Management-System │ ├── kbbks-fms-frontend \# React
-Frontend ├── teammate-backend \# CodeIgniter Backend ├── database.sql \#
-Database setup file ├── README.md └── upload_test.py
+```
+KBBKS-Financial-Management-System
+│
+├── backend       # CodeIgniter Backend
+│
+├── frontend         # React Frontend
+│
+├── README.md
+└── upload_test.py
+```
 
+---
 ------------------------------------------------------------------------
 
 # ✨ Features
@@ -119,7 +127,7 @@ OR import **fms_db.sql** using phpMyAdmin.
 
 # Backend Setup
 
-cd teammate-backend composer install php spark serve --port=8080
+cd backend composer install php spark serve --port=8080
 
 Backend will run at:
 
@@ -131,7 +139,7 @@ http://localhost:8080
 
 Open a new terminal.
 
-cd kbbks-fms-frontend npm install npm run dev
+cd frontend npm install npm run dev
 
 Frontend will run at:
 
