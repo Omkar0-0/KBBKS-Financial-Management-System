@@ -208,9 +208,10 @@ class ReportController extends BaseController
 
         $year  = $this->request->getGet('year') ?? null;
         $month = $this->request->getGet('month') ?? null;
+        $billStatus = $this->request->getGet('bill_status') ?? null;
 
         $reportModel = new ReportModel();
-        $data = $reportModel->getVendorSummary($vendor_id, $year, $month);
+        $data = $reportModel->getVendorSummary($vendor_id, $year, $month, $billStatus);
 
         if ($data === null) {
             return $this->response->setStatusCode(404)->setJSON([

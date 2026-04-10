@@ -14,7 +14,9 @@ class UserModel extends Model
         'email',
         'password',
         'role',
-        'token'
+        'token',
+        'reset_token',
+        'reset_token_expires_at'
     ];
     protected $returnType = 'array';
 }

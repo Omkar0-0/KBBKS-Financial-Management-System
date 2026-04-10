@@ -9,7 +9,7 @@ function VendorProfile({ vendorId, back }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [filters, setFilters] = useState({ year: '', month: '' });
+  const [filters, setFilters] = useState({ year: '', month: '', bill_status: '' });
 
   useEffect(() => {
     if (vendorId) fetchSummary(filters);
@@ -231,6 +231,24 @@ function VendorProfile({ vendorId, back }) {
                   </option>
                 );
               })}
+            </select>
+          </label>
+
+          <label>
+            Bill Status:
+            <select
+              value={filters.bill_status}
+              onChange={(e) =>
+                setFilters({
+                  ...filters,
+                  bill_status: e.target.value
+                })
+              }
+              style={isDarkMode ? styles.selectDark : styles.select}
+            >
+              <option value="">All</option>
+              <option value="PAID">Paid</option>
+              <option value="UNPAID">Unpaid</option>
             </select>
           </label>
         </div>

@@ -53,7 +53,7 @@ class ReportModel extends Model
     /**
      * Vendor Financial Summary (With Optional Filters)
      */
-    public function getVendorSummary($vendor_id, $year = null, $month = null)
+    public function getVendorSummary($vendor_id, $year = null, $month = null, $billStatus = null)
     {
         $vendor = $this->db->table('vendors')
             ->where('vendor_id', $vendor_id)
@@ -101,6 +101,18 @@ class ReportModel extends Model
             $billBuilder->where('MONTH(bill_date)', $month);
         }
 
+        if (!empty($billStatus)) {
+            if (strtoupper($billStatus) === 'PAID') {
+                $billBuilder->where('UPPER(status)', 'PAID');
+            } elseif (strtoupper($billStatus) === 'UNPAID') {
+                // Consider everything not paid as unpaid for filtering
+                $billBuilder->groupStart()
+                    ->where('status IS NULL', null, false)
+                    ->orWhere('UPPER(status) !=', 'PAID')
+                    ->groupEnd();
+            }
+        }
+
         $totalBills = $billBuilder->countAllResults(false);
 
         $totalBillAmount = $billBuilder
@@ -121,6 +133,17 @@ class ReportModel extends Model
 
         if (!empty($month)) {
             $paymentBuilder->where('MONTH(payment_date)', $month);
+        }
+
+        if (!empty($billStatus)) {
+            if (strtoupper($billStatus) === 'PAID') {
+                $paymentBuilder->where('UPPER(bills.status)', 'PAID');
+            } elseif (strtoupper($billStatus) === 'UNPAID') {
+                $paymentBuilder->groupStart()
+                    ->where('bills.status IS NULL', null, false)
+                    ->orWhere('UPPER(bills.status) !=', 'PAID')
+                    ->groupEnd();
+            }
         }
 
         $totalPayment = $paymentBuilder
@@ -174,7 +197,25 @@ class ReportModel extends Model
 
         // Detailed bills list for this vendor (for Vendor Profile view)
         $billsForVendor = $this->db->table('bills')
-            ->where('vendor_id', $vendor_id)
+            ->where('vendor_id', $vendor_id);
+
+        if (!empty($year)) {
+            $billsForVendor->where('YEAR(bill_date)', $year);
+        }
+        if (!empty($month)) {
+            $billsForVendor->where('MONTH(bill_date)', $month);
+        }
+        if (!empty($billStatus)) {
+            if (strtoupper($billStatus) === 'PAID') {
+                $billsForVendor->where('UPPER(status)', 'PAID');
+            } elseif (strtoupper($billStatus) === 'UNPAID') {
+                $billsForVendor->groupStart()
+                    ->where('status IS NULL', null, false)
+                    ->orWhere('UPPER(status) !=', 'PAID')
+                    ->groupEnd();
+            }
+        }
+        $billsForVendor = $billsForVendor
             ->orderBy('bill_date', 'DESC')
             ->get()
             ->getResultArray();
@@ -193,6 +234,7 @@ class ReportModel extends Model
             'logo' => $vendor['logo'],
             'year_filter' => $year,
             'month_filter' => $month,
+            'bill_status_filter' => $billStatus,
             'total_expense' => (float)$totalExpense,
             'total_payment' => (float)$totalPayment,
             'outstanding_amount' => (float)$outstanding,

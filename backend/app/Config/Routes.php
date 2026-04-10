@@ -35,6 +35,8 @@ $routes->group('auth', function ($routes) {
 
     $routes->post('login', 'AuthController::login');
     $routes->post('register', 'AuthController::register');
+    $routes->post('forgot-password', 'AuthController::forgotPassword');
+    $routes->post('reset-password', 'AuthController::resetPassword');
 
 });
 

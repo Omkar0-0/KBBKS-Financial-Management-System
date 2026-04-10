@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useDarkMode } from '../contexts/DarkModeContext'
-import { loginUser, registerUser } from '../services/auth.service'
+import { loginUser, registerUser, forgotPassword, resetPassword } from '../services/auth.service'
 
 function Login() {
   const { login } = useAuth()
   const { isDarkMode } = useDarkMode()
-  const [isRegistering, setIsRegistering] = useState(false)
+  const [authView, setAuthView] = useState('login') // login | register | forgot | reset
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -19,6 +19,25 @@ function Login() {
   const [registerEmail, setRegisterEmail] = useState('')
   const [registerPassword, setRegisterPassword] = useState('')
   const [role, setRole] = useState('Accountant')
+
+  // Forgot/Reset password
+  const [forgotEmail, setForgotEmail] = useState('')
+  const [resetEmail, setResetEmail] = useState('')
+  const [resetToken, setResetToken] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const mode = params.get('mode')
+    const emailFromLink = params.get('email')
+    const tokenFromLink = params.get('token')
+
+    if (mode === 'reset') {
+      setAuthView('reset')
+      if (emailFromLink) setResetEmail(emailFromLink)
+      if (tokenFromLink) setResetToken(tokenFromLink)
+    }
+  }, [])
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -74,7 +93,7 @@ function Login() {
         setRegisterEmail('')
         setRegisterPassword('')
         setRole('Accountant')
-        setIsRegistering(false)
+        setAuthView('login')
         setError('User registered successfully! You can now login.')
       } else {
         setError(response.message || 'Registration failed')
@@ -82,6 +101,49 @@ function Login() {
     } catch (err) {
       console.error('Registration error:', err)
       setError(err.response?.data?.message || 'An error occurred during registration')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    try {
+      const response = await forgotPassword(forgotEmail)
+      if (response.status) {
+        setResetEmail(forgotEmail)
+        setError('If the email is registered, reset instructions sent successfully. Please check your inbox.')
+      } else {
+        setError(response.message || 'Failed to process forgot password request')
+      }
+    } catch (err) {
+      console.error('Forgot password error:', err)
+      setError(err.response?.data?.message || 'An error occurred while processing forgot password')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    try {
+      const response = await resetPassword(resetEmail, resetToken, newPassword)
+      if (response.status) {
+        setError('Password reset successful! Please login with your new password.')
+        setAuthView('login')
+        setResetEmail('')
+        setResetToken('')
+        setNewPassword('')
+      } else {
+        setError(response.message || 'Failed to reset password')
+      }
+    } catch (err) {
+      console.error('Reset password error:', err)
+      setError(err.response?.data?.message || 'An error occurred while resetting password')
     } finally {
       setLoading(false)
     }
@@ -126,7 +188,7 @@ function Login() {
               </div>
             )}
 
-            {!isRegistering ? (
+            {authView === 'login' ? (
               <>
                 <h2 style={isDarkMode ? styles.formTitleDark : styles.formTitle}>Welcome Back</h2>
                 <p style={isDarkMode ? styles.formSubtitleDark : styles.formSubtitle}>Sign in to your account</p>
@@ -167,10 +229,22 @@ function Login() {
 
                 <button
                   type="button"
-                  onClick={() => setIsRegistering(true)}
+                  onClick={() => setAuthView('register')}
                   style={isDarkMode ? styles.secondaryButtonDark : styles.secondaryButton}
                 >
                   ✍️ Create Account
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthView('forgot')
+                    setError('')
+                    setForgotEmail(email || '')
+                  }}
+                  style={{ ...styles.secondaryButton, marginTop: '10px' }}
+                >
+                  🔑 Forgot Password?
                 </button>
 
                 <div style={isDarkMode ? styles.testUsersDark : styles.testUsers}>
@@ -179,7 +253,7 @@ function Login() {
                   <p style={styles.testUserPassword}>password123</p>
                 </div>
               </>
-            ) : (
+            ) : authView === 'register' ? (
               <>
                 <h2 style={isDarkMode ? styles.formTitleDark : styles.formTitle}>Create New Account</h2>
                 <p style={isDarkMode ? styles.formSubtitleDark : styles.formSubtitle}>Join KBBKS FMS</p>
@@ -247,12 +321,97 @@ function Login() {
                 <button
                   type="button"
                   onClick={() => {
-                    setIsRegistering(false)
+                    setAuthView('login')
                     setError('')
                   }}
                   style={isDarkMode ? styles.secondaryButtonDark : styles.secondaryButton}
                 >
                   🔓 Sign In
+                </button>
+              </>
+            ) : authView === 'forgot' ? (
+              <>
+                <h2 style={isDarkMode ? styles.formTitleDark : styles.formTitle}>Forgot Password</h2>
+                <p style={isDarkMode ? styles.formSubtitleDark : styles.formSubtitle}>Enter your email and we will send a reset link</p>
+
+                <form onSubmit={handleForgotPassword} style={styles.form}>
+                  <div style={styles.formGroup}>
+                    <label style={isDarkMode ? styles.labelDark : styles.label}>📧 Email Address</label>
+                    <input
+                      type="email"
+                      placeholder="you@example.com"
+                      value={forgotEmail}
+                      onChange={(e) => setForgotEmail(e.target.value)}
+                      required
+                      style={isDarkMode ? styles.inputDark : styles.input}
+                    />
+                  </div>
+                  <button type="submit" disabled={loading} style={styles.submitButton}>
+                    {loading ? '⏳ Sending...' : '📩 Send Reset Link'}
+                  </button>
+                </form>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthView('login')
+                    setError('')
+                  }}
+                  style={{
+                    ...(isDarkMode ? styles.secondaryButtonDark : styles.secondaryButton),
+                    marginTop: '14px',
+                  }}
+                >
+                  ← Back to Login
+                </button>
+              </>
+            ) : (
+              <>
+                <h2 style={isDarkMode ? styles.formTitleDark : styles.formTitle}>Reset Password</h2>
+                <p style={isDarkMode ? styles.formSubtitleDark : styles.formSubtitle}>Set your new password using the reset link details</p>
+
+                <form onSubmit={handleResetPassword} style={styles.form}>
+                  <div style={styles.formGroup}>
+                    <label style={isDarkMode ? styles.labelDark : styles.label}>📧 Email Address</label>
+                    <input
+                      type="email"
+                      placeholder="you@example.com"
+                      value={resetEmail}
+                      onChange={(e) => setResetEmail(e.target.value)}
+                      required
+                      style={isDarkMode ? styles.inputDark : styles.input}
+                    />
+                  </div>
+
+                  <div style={styles.formGroup}>
+                    <label style={isDarkMode ? styles.labelDark : styles.label}>🔐 New Password</label>
+                    <input
+                      type="password"
+                      placeholder="At least 6 characters"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      required
+                      style={isDarkMode ? styles.inputDark : styles.input}
+                    />
+                  </div>
+
+                  <button type="submit" disabled={loading} style={styles.submitButton}>
+                    {loading ? '⏳ Resetting...' : '✅ Reset Password'}
+                  </button>
+                </form>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthView('login')
+                    setError('')
+                  }}
+                  style={{
+                    ...(isDarkMode ? styles.secondaryButtonDark : styles.secondaryButton),
+                    marginTop: '14px',
+                  }}
+                >
+                  ← Back to Login
                 </button>
               </>
             )}
